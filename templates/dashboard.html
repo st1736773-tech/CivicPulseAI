@@ -1,0 +1,219 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>CivicPulse AI</h2>
+        <ul>
+            <li><a href="{{ url_for('dashboard') }}">🏠 Dashboard</a></li>
+            <li><a href="{{ url_for('chatbot') }}">🤖 AI Chatbot</a></li>
+            <li><a href="{{ url_for('crowd') }}">👥 Crowd Detection</a></li>
+            <li><a href="{{ url_for('fake_news') }}">📰 Fake News</a></li>
+            <li><a href="{{ url_for('complaints') }}">📢 Complaints</a></li>
+            <li><a href="{{ url_for('report') }}">📊 Reports</a></li>
+            <li><a href="{{ url_for('profile') }}">👤 Profile</a></li>
+            <li><a href="{{ url_for('logout') }}">🚪 Logout</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Topbar -->
+        <header class="topbar">
+            <h1>Dashboard</h1>
+            <div class="user-box">
+                👤 {{ session.get('user', 'Guest') }}
+            </div>
+        </header>
+
+        <!-- Metric Cards -->
+        <section class="cards">
+            <div class="card">
+                <h3>👥 Crowd</h3>
+                <h2>2,431</h2>
+                <p>People Detected</p>
+            </div>
+
+            <div class="card">
+                <h3>🚨 Risk</h3>
+                <h2>Medium</h2>
+                <p>AI Assessment</p>
+            </div>
+
+            <div class="card">
+                <h3>📰 Fake News</h3>
+                <h2>3</h2>
+                <p>Posts Flagged</p>
+            </div>
+
+            <div class="card">
+                <h3>📢 Complaints</h3>
+                <h2>42</h2>
+                <p>Pending Cases</p>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="quick-actions">
+            <h2>⚡ Quick Actions</h2>
+            <div class="action-grid">
+                <a href="{{ url_for('chatbot') }}" class="action-card">
+                    🤖
+                    <h3>AI Chatbot</h3>
+                    <p>Ask AI for assistance</p>
+                </a>
+
+                <a href="{{ url_for('crowd') }}" class="action-card">
+                    👥
+                    <h3>Crowd Detection</h3>
+                    <p>Analyze crowd activity</p>
+                </a>
+
+                <a href="{{ url_for('fake_news') }}" class="action-card">
+                    📰
+                    <h3>Fake News</h3>
+                    <p>Verify suspicious news</p>
+                </a>
+
+                <a href="{{ url_for('complaints') }}" class="action-card">
+                    📢
+                    <h3>Complaints</h3>
+                    <p>View citizen complaints</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- System Overview -->
+        <section class="system-overview">
+            <div class="progress-card">
+                <h2>🎯 AI Accuracy</h2>
+                <div class="progress-circle">
+                    <div class="progress-value">96%</div>
+                </div>
+            </div>
+
+            <div class="progress-card">
+                <h2>⚡ System Health</h2>
+                <div class="progress-circle green">
+                    <div class="progress-value">99%</div>
+                </div>
+            </div>
+
+            <div class="notification-panel">
+                <h2>🔔 Notifications</h2>
+                <div class="notification">
+                    🚨 Crowd density increased in Zone A
+                </div>
+                <div class="notification">
+                    📰 Fake news alert generated
+                </div>
+                <div class="notification">
+                    📢 2 New complaints received
+                </div>
+                <div class="notification">
+                    🤖 AI report completed successfully
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Grid (Analytics + Right Panel) -->
+        <section class="bottom-grid">
+
+            <!-- Analytics Chart -->
+            <div class="analytics">
+                <h2>📈 AI Analytics</h2>
+                <canvas id="analyticsChart"></canvas>
+            </div>
+
+            <!-- Right Side Panel -->
+            <div class="right-panel">
+                <div class="activity">
+                    <h2>🕒 Recent Activity</h2>
+                    <ul>
+                        <li>✅ Crowd detected at Central Park</li>
+                        <li>⚠️ Fake news flagged by AI</li>
+                        <li>📢 New complaint received</li>
+                        <li>🤖 AI report generated successfully</li>
+                    </ul>
+                </div>
+
+                <div class="status">
+                    <h2>🤖 AI Status</h2>
+                    <p>🟢 AI Assistant : Online</p>
+                    <p>🟢 Crowd Detection : Active</p>
+                    <p>🟢 Fake News Model : Running</p>
+                    <p>🟢 Database : Connected</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Map + Reports Section -->
+        <section class="dashboard-bottom">
+
+            <!-- Live Map -->
+            <div class="map-card">
+                <h2>🗺 AI Monitoring Map</h2>
+                <div class="map-placeholder">
+                    🌍
+                    <p>Live Heatmap Integration</p>
+                    <small>(Google Maps / Leaflet API)</small>
+                </div>
+            </div>
+
+            <!-- Recent Reports -->
+            <div class="report-card">
+                <h2>📄 Recent Reports</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Module</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#101</td>
+                            <td>Crowd Detection</td>
+                            <td><span class="success">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>#102</td>
+                            <td>Fake News</td>
+                            <td><span class="warning">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td>#103</td>
+                            <td>Complaint AI</td>
+                            <td><span class="success">Completed</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- Floating AI Assistant -->
+<div class="ai-widget">
+    <a href="{{ url_for('chatbot') }}">
+        🤖 Ask AI
+    </a>
+</div>
+
+<!-- Chart.js Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='charts.js') }}"></script>
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+{% endblock %}

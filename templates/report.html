@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="chat-container">
+
+<h1>📄 AI Report</h1>
+
+<div class="ai-message">
+
+{{report}}
+
+</div>
+
+<button onclick="window.print()">
+Download Report
+</button>
+
+</div>
+
+{% endblock %}

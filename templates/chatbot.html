@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+<div class="chat-container">
+
+    <div class="chat-header">
+        <h1>🤖 CivicPulse AI Assistant</h1>
+        <p>Ask anything about Public Safety, Fake News, Crowd Detection and Complaints.</p>
+    </div>
+
+    <div class="chat-box">
+
+        {% if question %}
+        <div class="user-message">
+            <strong>👤 You:</strong><br>
+            {{ question }}
+        </div>
+        {% endif %}
+
+        {% if answer %}
+        <div class="ai-message">
+            <strong>🤖 CivicPulse AI:</strong><br>
+            {{ answer }}
+        </div>
+        {% endif %}
+
+    </div>
+
+    <form method="POST">
+
+        <textarea
+            name="question"
+            rows="4"
+            placeholder="Ask your question here..."
+            required></textarea>
+
+        <button type="submit">
+            🚀 Ask AI
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

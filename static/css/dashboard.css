@@ -1,0 +1,1060 @@
+/* ===============================
+   Global Styles & Reset
+   =============================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #0f172a;
+    color: #ffffff;
+}
+
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===============================
+   Sidebar
+   =============================== */
+.sidebar {
+    width: 250px;
+    background: #111827;
+    padding: 30px 20px;
+    flex-shrink: 0;
+}
+
+.sidebar h2 {
+    color: #00E5FF;
+    margin-bottom: 40px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin: 15px 0;
+}
+
+.sidebar a {
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    padding: 12px;
+    border-radius: 10px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.sidebar a:hover {
+    background: #00E5FF;
+    color: #000000;
+}
+
+/* ===============================
+   Main Content Area
+   =============================== */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    min-width: 0; /* Prevents flex children from overflowing */
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.user-box {
+    background: #1e293b;
+    padding: 12px 20px;
+    border-radius: 10px;
+}
+
+/* Metric Cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: #00E5FF;
+}
+
+.card h2 {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+/* ===============================
+   Bottom Grid (Analytics & Sidebar Panels)
+   =============================== */
+.bottom-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.analytics,
+.activity,
+.status {
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+}
+
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.analytics h2,
+.activity h2,
+.status h2 {
+    color: #00E5FF;
+    margin-bottom: 20px;
+}
+
+.activity ul {
+    list-style: none;
+    padding: 0;
+}
+
+.activity li {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.activity li:last-child {
+    border-bottom: none;
+}
+
+.status p {
+    padding: 10px 0;
+}
+
+/* Responsive Chart Container */
+canvas {
+    width: 100%;
+    max-height: 380px;
+}
+
+/* ===============================
+   Responsive Breakpoints
+   =============================== */
+@media (max-width: 900px) {
+    .bottom-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .sidebar h2 {
+        margin-bottom: 20px;
+    }
+
+    .topbar {
+        margin-bottom: 20px;
+    }
+}
+/* ==========================
+   QUICK ACTIONS
+========================== */
+
+.quick-actions{
+
+margin-top:40px;
+
+}
+
+.quick-actions h2{
+
+color:#00E5FF;
+
+margin-bottom:20px;
+
+}
+
+.action-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+}
+
+.action-card{
+
+background:#1e293b;
+
+padding:25px;
+
+border-radius:18px;
+
+text-decoration:none;
+
+color:white;
+
+text-align:center;
+
+transition:.3s;
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+.action-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 0 20px rgba(0,229,255,.4);
+
+border-color:#00E5FF;
+
+}
+
+.action-card h3{
+
+margin:15px 0 10px;
+
+color:#00E5FF;
+
+}
+
+.action-card p{
+
+color:#cbd5e1;
+
+font-size:14px;
+
+}
+
+/* ==========================
+   FLOATING AI BUTTON
+========================== */
+
+.floating-ai{
+
+position:fixed;
+
+bottom:30px;
+
+right:30px;
+
+width:65px;
+
+height:65px;
+
+border-radius:50%;
+
+background:#00E5FF;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:30px;
+
+text-decoration:none;
+
+box-shadow:0 0 25px rgba(0,229,255,.5);
+
+transition:.3s;
+
+z-index:999;
+
+}
+
+.floating-ai:hover{
+
+transform:scale(1.12) rotate(10deg);
+
+background:#00bcd4;
+
+}
+/* ==========================
+SYSTEM OVERVIEW
+========================== */
+
+.system-overview{
+
+display:grid;
+
+grid-template-columns:1fr 1fr 2fr;
+
+gap:25px;
+
+margin-top:40px;
+
+}
+
+.progress-card{
+
+background:#1e293b;
+
+padding:25px;
+
+border-radius:20px;
+
+text-align:center;
+
+transition:.3s;
+
+}
+
+.progress-card:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 0 20px rgba(0,229,255,.35);
+
+}
+
+.progress-card h2{
+
+margin-bottom:25px;
+
+color:#00E5FF;
+
+}
+
+.progress-circle{
+
+width:150px;
+
+height:150px;
+
+margin:auto;
+
+border-radius:50%;
+
+background:conic-gradient(#00E5FF 0% 96%, #334155 96% 100%);
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+}
+
+.progress-circle.green{
+
+background:conic-gradient(#22c55e 0% 99%, #334155 99% 100%);
+
+}
+
+.progress-value{
+
+width:120px;
+
+height:120px;
+
+border-radius:50%;
+
+background:#111827;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:28px;
+
+font-weight:bold;
+
+}
+
+.notification-panel{
+
+background:#1e293b;
+
+padding:25px;
+
+border-radius:20px;
+
+}
+
+.notification-panel h2{
+
+color:#00E5FF;
+
+margin-bottom:20px;
+
+}
+
+.notification{
+
+padding:15px;
+
+margin-bottom:15px;
+
+background:#111827;
+
+border-left:4px solid #00E5FF;
+
+border-radius:10px;
+
+transition:.3s;
+
+}
+
+.notification:hover{
+
+transform:translateX(6px);
+
+background:#0f172a;
+
+}
+
+@media(max-width:1000px){
+
+.system-overview{
+
+grid-template-columns:1fr;
+
+}
+
+}
+/* ==========================
+MAP + REPORTS
+========================== */
+
+.dashboard-bottom{
+
+display:grid;
+
+grid-template-columns:2fr 1fr;
+
+gap:25px;
+
+margin-top:40px;
+
+}
+
+.map-card,
+.report-card{
+
+background:#1e293b;
+
+padding:25px;
+
+border-radius:20px;
+
+}
+
+.map-card h2,
+.report-card h2{
+
+color:#00E5FF;
+
+margin-bottom:20px;
+
+}
+
+.map-placeholder{
+
+height:300px;
+
+border:2px dashed rgba(255,255,255,.15);
+
+border-radius:18px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:70px;
+
+color:#00E5FF;
+
+}
+
+.map-placeholder p{
+
+margin-top:15px;
+
+font-size:20px;
+
+color:white;
+
+}
+
+.map-placeholder small{
+
+color:#94a3b8;
+
+margin-top:8px;
+
+}
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+}
+
+table th{
+
+background:#0f172a;
+
+padding:12px;
+
+}
+
+table td{
+
+padding:12px;
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.success{
+
+color:#22c55e;
+
+font-weight:bold;
+
+}
+
+.warning{
+
+color:#facc15;
+
+font-weight:bold;
+
+}
+
+/* Floating AI */
+
+.ai-widget{
+
+position:fixed;
+
+bottom:30px;
+
+right:30px;
+
+z-index:999;
+
+}
+
+.ai-widget a{
+
+background:#00E5FF;
+
+color:#000;
+
+padding:18px 22px;
+
+border-radius:50px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+box-shadow:0 0 25px rgba(0,229,255,.45);
+
+transition:.3s;
+
+}
+
+.ai-widget a:hover{
+
+transform:scale(1.08);
+
+}
+
+@media(max-width:1000px){
+
+.dashboard-bottom{
+
+grid-template-columns:1fr;
+
+}
+
+}
+/* ==========================
+CHATBOT
+========================== */
+
+.chat-container{
+
+max-width:900px;
+
+margin:40px auto;
+
+padding:30px;
+
+background:#1e293b;
+
+border-radius:20px;
+
+}
+
+.chat-header{
+
+text-align:center;
+
+margin-bottom:30px;
+
+}
+
+.chat-header h1{
+
+color:#00E5FF;
+
+}
+
+.chat-box{
+
+min-height:300px;
+
+background:#111827;
+
+padding:20px;
+
+border-radius:15px;
+
+margin-bottom:20px;
+
+overflow-y:auto;
+
+}
+
+.user-message{
+
+background:#2563eb;
+
+padding:15px;
+
+border-radius:12px;
+
+margin-bottom:20px;
+
+}
+
+.ai-message{
+
+background:#0f766e;
+
+padding:15px;
+
+border-radius:12px;
+
+}
+
+textarea{
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:12px;
+
+background:#0f172a;
+
+color:white;
+
+font-size:16px;
+
+resize:none;
+
+margin-bottom:20px;
+
+}
+
+button{
+
+background:#00E5FF;
+
+color:black;
+
+padding:15px 25px;
+
+border:none;
+
+border-radius:12px;
+
+cursor:pointer;
+
+font-size:16px;
+
+font-weight:bold;
+
+}
+
+button:hover{
+
+background:#00c8e0;
+
+}
+/* ==========================
+   CIVICPULSE AI PREMIUM UI
+========================== */
+
+
+body{
+    background:
+    radial-gradient(circle at top,#102040,#020617);
+    color:white;
+    font-family:"Segoe UI",sans-serif;
+}
+
+
+/* Dashboard Layout */
+
+.dashboard{
+
+    display:flex;
+    min-height:100vh;
+
+}
+
+
+/* Sidebar */
+
+.sidebar{
+
+    width:260px;
+    background:rgba(15,23,42,0.85);
+    backdrop-filter:blur(20px);
+    border-right:1px solid rgba(255,255,255,.1);
+    padding:25px;
+
+}
+
+
+.sidebar h2{
+
+    color:#00e5ff;
+    text-align:center;
+    margin-bottom:30px;
+
+}
+
+
+.sidebar ul{
+
+    list-style:none;
+    padding:0;
+
+}
+
+
+.sidebar li{
+
+    margin:18px 0;
+
+}
+
+
+.sidebar a{
+
+    color:#cbd5e1;
+    text-decoration:none;
+    font-size:17px;
+    display:block;
+    padding:12px;
+    border-radius:12px;
+    transition:.3s;
+
+}
+
+
+.sidebar a:hover{
+
+    background:rgba(0,229,255,.15);
+    color:#00e5ff;
+    transform:translateX(8px);
+
+}
+
+
+
+/* Main Content */
+
+.main-content{
+
+    flex:1;
+    padding:35px;
+
+}
+
+
+
+/* Topbar */
+
+.topbar{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:35px;
+
+}
+
+
+.topbar h1{
+
+    font-size:38px;
+
+}
+
+
+.user-box{
+
+    background:rgba(255,255,255,.08);
+    padding:12px 20px;
+    border-radius:30px;
+    border:1px solid rgba(255,255,255,.15);
+
+}
+
+
+
+/* Cards */
+
+.cards{
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+
+}
+
+
+.card{
+
+    background:
+    rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    padding:25px;
+
+    border-radius:22px;
+
+    backdrop-filter:blur(15px);
+
+    transition:.4s;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 0 35px rgba(0,229,255,.3);
+
+}
+
+
+.card h3{
+
+    color:#00e5ff;
+
+}
+
+
+.card h2{
+
+    font-size:42px;
+
+}
+
+
+
+/* Chat / AI Box */
+
+.chat-container{
+
+    width:70%;
+    margin:50px auto;
+
+    background:
+    rgba(255,255,255,.08);
+
+    padding:35px;
+
+    border-radius:25px;
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+}
+
+
+
+.chat-header h1{
+
+    color:#00e5ff;
+
+}
+
+
+
+textarea{
+
+    width:100%;
+
+    background:#020617;
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,.2);
+
+    border-radius:15px;
+
+    padding:15px;
+
+    font-size:16px;
+
+    margin-top:20px;
+
+}
+
+
+
+button{
+
+    margin-top:20px;
+
+    background:#00e5ff;
+
+    color:#020617;
+
+    border:none;
+
+    padding:14px 30px;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+button:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:0 0 25px #00e5ff;
+
+}
+
+
+
+/* AI Response */
+
+.ai-message{
+
+    margin-top:30px;
+
+    background:rgba(0,229,255,.12);
+
+    border-left:4px solid #00e5ff;
+
+    padding:20px;
+
+    border-radius:15px;
+
+}
+
+
+
+/* Responsive */
+
+@media(max-width:1000px){
+
+.cards{
+
+grid-template-columns:1fr 1fr;
+
+}
+
+.chat-container{
+
+width:90%;
+
+}
+
+}
+
+
+@media(max-width:700px){
+
+.dashboard{
+
+display:block;
+
+}
+
+.sidebar{
+
+width:auto;
+
+}
+
+.cards{
+
+grid-template-columns:1fr;
+
+}
+
+}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="chat-container">
+
+<h1>👥 Crowd Detection AI</h1>
+
+
+<form method="POST">
+
+<input type="file">
+
+<button>
+Analyze Crowd
+</button>
+
+</form>
+
+
+{% if result %}
+
+<div class="ai-message">
+{{result}}
+</div>
+
+{% endif %}
+
+
+</div>
+
+{% endblock %}

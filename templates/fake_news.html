@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+<div class="chat-container">
+
+    <h1>📰 Fake News Detection</h1>
+
+    <form method="POST">
+
+        <textarea
+            name="news"
+            rows="8"
+            placeholder="Paste news here..."
+            required></textarea>
+
+        <button type="submit">
+            Analyze News
+        </button>
+
+    </form>
+
+    {% if result %}
+
+    <div class="ai-message">
+
+        {{ result }}
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}
